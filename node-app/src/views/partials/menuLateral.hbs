@@ -1,0 +1,56 @@
+{{#if allusers}}
+
+	<div class="menuAllusr">
+		<div>
+			<h3 style="text-align:center">Todos Usuários</h3>
+		</div>
+		<ul>
+			{{#each allusers}}
+				<li class="row">
+					{{#if perfilImage}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="data:image/jpeg;base64,{{perfilImage}}" alt="foto de perfil" style="width:50px;"> {{name}}</a>
+					{{else}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="/img/avatar.png" alt="foto de perfil" style="width:40px; border-radius: 20px;"> {{name}}</a>
+					{{/if}}
+					<form action="/users/sendRequest?_method=POST&usr1={{currentUserId}}&usr2={{id}}" method="POST">
+						<button type="submit" class="btn btn-primary btn-sm">Adicionar</button>
+					</form>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<div class="menuAmg">
+		<div>
+			<h3 style="text-align:center">Seus amigos</h3>
+		</div>
+		<ul>
+			{{#each pendFriendsRequests}}
+				<li class="row">
+					{{#if perfilImage}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="data:image/jpeg;base64,{{perfilImage}}" alt="foto de perfil" style="width:50px;"> {{name}}</a>
+					{{else}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="/img/avatar.png" alt="foto de perfil" style="width:40px; border-radius: 20px;"> {{name}}</a>
+					{{/if}}
+					<form action="/users/cancelRequest?_method=POST&usr1={{currentUserId}}&usr2={{id}}" method="POST">
+						<button type="submit" class="btn btn-warning btn-sm">Cancelar</button>
+					</form>
+				</li>
+			{{/each}}
+			
+			{{#each friendsAccepted}}
+				<li class="row">
+					{{#if perfilImage}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="data:image/jpeg;base64,{{perfilImage}}" alt="foto de perfil" style="width:50px;"> {{name}}</a>
+					{{else}}
+						<a class="mr-1" href="/notes/{{id}}"><img src="/img/avatar.png" alt="foto de perfil" style="width:40px; border-radius: 20px;"> {{name}}</a>
+					{{/if}}
+					<form action="/users/removeFriend?_method=POST&usr1={{currentUserId}}&usr2={{id}}" method="POST">
+						<button type="submit" class="btn btn-danger btn-sm">Remover</button>
+					</form>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+	
+{{/if}}

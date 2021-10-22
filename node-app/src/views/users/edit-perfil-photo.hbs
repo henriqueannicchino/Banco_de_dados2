@@ -1,0 +1,19 @@
+<div class="col-md-4 mx-auto">
+	<div class="card text-center">
+		<div clss="card-header">
+			<h3>Update Perfil Picture</h3>
+		</div>
+	
+		<div class="card-body">		
+			<form action="/users/edit-perfil-photo?_method=PUT&usrId={{user._id}}" enctype="multipart/form-data" method="POST">
+				<div class="form-group">
+					<input type="file" class="form-control" name="image">
+				</div>
+				<div class="form-gorup">
+					<button class="btn btn-primary btn-block" type="Submit">Update</button>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</div>
